@@ -1,17 +1,17 @@
 import { Meteor } from 'meteor/meteor';
 import { mount } from 'react-mounter';
 import { withTracker } from 'meteor/react-meteor-data';
-import { ProductDetails } from "./product-details";
+import { ProductsDash } from "./products-dash";
 
-FlowRouter.route('/products/:_id', {
+FlowRouter.route('/categories/:category', {
 	action: (params) => {
-		mount(ProductDetailsContainer, {
+		mount(ProductsDashContainer, {
 			params: params
 		});
 	}
 });
 
-export const ProductDetailsContainer = withTracker(() => {
+export const ProductsDashContainer = withTracker(() => {
 	return {
 		Meteor: {
 			collection: {},
@@ -21,4 +21,4 @@ export const ProductDetailsContainer = withTracker(() => {
 			loggingIn: Meteor.loggingIn()
 		}
 	};
-})(ProductDetails);
+})(ProductsDash);
